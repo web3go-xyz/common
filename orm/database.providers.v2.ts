@@ -2,12 +2,10 @@ import { createConnection } from 'typeorm';
 import { join } from 'path';
 import { RepositoryConsts } from './repositoryConsts';
 import { AppConfig } from './../setting/appConfig';
- 
 
- /**
- * @deprecated we should use v2 version instead of current
- */
-export const databaseProviders = [
+
+
+export const databaseProviders_main = [
   {
     provide: RepositoryConsts.DATABASE_CONNECTION,
     useFactory: async () => {
@@ -22,8 +20,9 @@ export const databaseProviders = [
       };
       return await createConnection(connectionOption);
     },
-  },
+  }];
 
+export const databaseProviders_cdp = [
   {
     provide: RepositoryConsts.DATABASE_CONNECTION_CDP,
     useFactory: async () => {
@@ -34,8 +33,9 @@ export const databaseProviders = [
       };
       return await createConnection(connectionOption);
     },
-  },
+  }];
 
+export const databaseProviders_moonriver = [
   {
     provide: RepositoryConsts.DATABASE_CONNECTION_MOONRIVER,
     useFactory: async () => {
@@ -46,8 +46,9 @@ export const databaseProviders = [
       };
       return await createConnection(connectionOption);
     },
-  },
+  }];
 
+export const databaseProviders_polkadot = [
   {
     provide: RepositoryConsts.DATABASE_CONNECTION_POLKADOT_PARACHAIN,
     useFactory: async () => {
@@ -59,7 +60,10 @@ export const databaseProviders = [
       };
       return await createConnection(connectionOption);
     },
-  },
+  }];
+
+
+export const databaseProviders_kusama = [
   {
     provide: RepositoryConsts.DATABASE_CONNECTION_KUSAMA_PARACHAIN,
     useFactory: async () => {
@@ -72,7 +76,9 @@ export const databaseProviders = [
       return await createConnection(connectionOption);
     },
   },
+];
 
+export const databaseProviders_rmrk = [
   {
     provide: RepositoryConsts.DATABASE_CONNECTION_RMRK,
     useFactory: async () => {

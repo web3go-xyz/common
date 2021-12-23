@@ -41,10 +41,8 @@ import { EventEntities } from './../entity/RMRKModule/EventEntities';
 import { NominatorRewardDetailHistory } from './../entity/MoonRiverModule/NominatorRewardDetailHistory.entity';
 import { CollectionStatisticEntities } from './../entity/RMRKModule/CollectionStatisticEntities';
 
-/**
- * @deprecated we should use v2 version instead of current
- */
-export const repositoryProviders = [
+
+export const repositoryProviders_erc20 = [
   {
     provide: RepositoryConsts.CHAINTYPE_REPOSITORY,
     useFactory: (connection: Connection) => {
@@ -106,10 +104,13 @@ export const repositoryProviders = [
       return connection.getRepository(LabelMarkConfig);
     },
     inject: [RepositoryConsts.DATABASE_CONNECTION],
-  },
-  //polk parachin
+  }];
 
-  //kusama
+//polk parachin
+
+//kusama
+
+export const repositoryProviders_kusama = [
   {
     provide: RepositoryConsts.KUSAMA_PARA_CHAIN_REPOSITORY,
     useFactory: (connection: Connection) => {
@@ -144,9 +145,11 @@ export const repositoryProviders = [
       return connection.getRepository(PolkParaChainCrowdloanRound);
     },
     inject: [RepositoryConsts.DATABASE_CONNECTION_KUSAMA_PARACHAIN],
-  },
+  }];
 
-  //polkadot
+
+//polkadot
+export const repositoryProviders_polkadot = [
   {
     provide: RepositoryConsts.POLKADOT_PARA_CHAIN_REPOSITORY,
     useFactory: (connection: Connection) => {
@@ -196,9 +199,10 @@ export const repositoryProviders = [
     },
     inject: [RepositoryConsts.DATABASE_CONNECTION_POLKADOT_PARACHAIN],
   },
+];
 
-  //Karura CDP
-
+//Karura CDP
+export const repositoryProviders_karura = [
   {
     provide: RepositoryConsts.CDP_CHAIN_STATE_REPOSITORY,
     useFactory: (connection: Connection) => {
@@ -253,12 +257,11 @@ export const repositoryProviders = [
     },
     inject: [RepositoryConsts.DATABASE_CONNECTION],
   },
+];
 
+//Moonriver
 
-
-  //Moonriver
-
-
+export const repositoryProviders_moonriver = [
   {
     provide: RepositoryConsts.MOONRIVER_CHAIN_STATE_REPOSITORY,
     useFactory: (connection: Connection) => {
@@ -326,8 +329,11 @@ export const repositoryProviders = [
     },
     inject: [RepositoryConsts.DATABASE_CONNECTION_MOONRIVER],
   },
+];
 
-  //#region  User Management
+
+//#region  User Management
+export const repositoryProviders_main = [
   {
     provide: RepositoryConsts.USER_REPOSITORY,
     useFactory: (connection: Connection) => {
@@ -349,6 +355,7 @@ export const repositoryProviders = [
     },
     inject: [RepositoryConsts.DATABASE_CONNECTION],
   },
+
   //#endregion
 
 
@@ -361,9 +368,11 @@ export const repositoryProviders = [
     inject: [RepositoryConsts.DATABASE_CONNECTION],
   },
   //#endregion
+];
 
+//#region RMRK
 
-  //#region RMRK
+export const repositoryProviders_rmrk = [
   {
     provide: RepositoryConsts.RMRK_COLLECTION_REPOSITORY,
     useFactory: (connection: Connection) => {
@@ -399,5 +408,5 @@ export const repositoryProviders = [
     },
     inject: [RepositoryConsts.DATABASE_CONNECTION_RMRK],
   },
-  //#endregion
 ];
+//#endregion
