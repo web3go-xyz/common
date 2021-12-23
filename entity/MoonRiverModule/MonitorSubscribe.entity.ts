@@ -18,7 +18,7 @@ export class MonitorSubscribe {
         nullable: false,
         type: 'text',
     })
-    target_address: string;
+    watched_address: string;
 
     @ApiProperty()
     @Column({
@@ -37,11 +37,11 @@ export class MonitorSubscribe {
 
     @ApiProperty()
     @Column({
-        comment: 'last notify message',
-        type: 'text',
+        comment: 'md5 hash for last notify message',
+
         nullable: false,
     })
-    last_notify_messsage: string;
+    last_notify_messsage_hash: string;
 
     @ApiProperty()
     @Column({ comment: 'last notify time', type: 'datetime', nullable: false })
