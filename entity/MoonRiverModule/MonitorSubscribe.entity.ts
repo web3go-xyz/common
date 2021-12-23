@@ -24,4 +24,24 @@ export class MonitorSubscribe {
     subscribe_email: string;
 
 
+    @ApiProperty()
+    @Column({ comment: 'monitor target type. 1=Collator , 2=Delegator;', nullable: false, default: 1 })
+    monitor_type: number;
+
+    @ApiProperty()
+    @Column({ comment: 'monitor rule. currently we only support: Collator Rank lower than the last 10% of max collators per round;', nullable: false, type: 'text', })
+    monitor_rule: string;
+
+    @ApiProperty()
+    @Column({
+        comment: 'last notify message',
+        type: 'text',
+        nullable: false,
+    })
+    last_notify_messsage: string;
+
+    @ApiProperty()
+    @Column({ comment: 'last notify time', type: 'datetime', nullable: false })
+    last_notify_time: Date;
+
 }

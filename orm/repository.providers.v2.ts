@@ -40,6 +40,7 @@ import { RemarkEntities } from './../entity/RMRKModule/RemarkEntities';
 import { EventEntities } from './../entity/RMRKModule/EventEntities';
 import { NominatorRewardDetailHistory } from './../entity/MoonRiverModule/NominatorRewardDetailHistory.entity';
 import { CollectionStatisticEntities } from './../entity/RMRKModule/CollectionStatisticEntities';
+import { MonitorSubscribe } from './../entity/MoonRiverModule/MonitorSubscribe.entity';
 
 
 export const repositoryProviders_erc20 = [
@@ -326,6 +327,15 @@ export const repositoryProviders_moonriver = [
     provide: RepositoryConsts.MOONRIVER_NOMINATOR_REWARD_DETAIL_HISTORY_REPOSITORY,
     useFactory: (connection: Connection) => {
       return connection.getRepository(NominatorRewardDetailHistory);
+    },
+    inject: [RepositoryConsts.DATABASE_CONNECTION_MOONRIVER],
+  },
+
+
+  {
+    provide: RepositoryConsts.MOONRIVER_MONITOR_SUBSCRIBE_REPOSITORY,
+    useFactory: (connection: Connection) => {
+      return connection.getRepository(MonitorSubscribe);
     },
     inject: [RepositoryConsts.DATABASE_CONNECTION_MOONRIVER],
   },
