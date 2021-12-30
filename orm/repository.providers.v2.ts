@@ -50,14 +50,14 @@ export const repositoryProviders_erc20 = [
 
       return connection.getRepository(ChainType);
     },
-    inject: [RepositoryConsts.DATABASE_CONNECTION],
+    inject: [RepositoryConsts.DATABASE_CONNECTION_ERC20],
   },
   {
     provide: RepositoryConsts.WALLET_ADDRESS_REPOSITORY,
     useFactory: (connection: Connection) => {
       return connection.getRepository(WalletAddress);
     },
-    inject: [RepositoryConsts.DATABASE_CONNECTION],
+    inject: [RepositoryConsts.DATABASE_CONNECTION_ERC20],
   },
 
   {
@@ -65,7 +65,7 @@ export const repositoryProviders_erc20 = [
     useFactory: (connection: Connection) => {
       return connection.getRepository(WalletAddressInfo);
     },
-    inject: [RepositoryConsts.DATABASE_CONNECTION],
+    inject: [RepositoryConsts.DATABASE_CONNECTION_ERC20],
   },
 
   {
@@ -73,7 +73,7 @@ export const repositoryProviders_erc20 = [
     useFactory: (connection: Connection) => {
       return connection.getRepository(WalletAddressTransaction);
     },
-    inject: [RepositoryConsts.DATABASE_CONNECTION],
+    inject: [RepositoryConsts.DATABASE_CONNECTION_ERC20],
   },
 
   {
@@ -81,7 +81,7 @@ export const repositoryProviders_erc20 = [
     useFactory: (connection: Connection) => {
       return connection.getRepository(AddressTag);
     },
-    inject: [RepositoryConsts.DATABASE_CONNECTION],
+    inject: [RepositoryConsts.DATABASE_CONNECTION_ERC20],
   },
 
   {
@@ -89,7 +89,7 @@ export const repositoryProviders_erc20 = [
     useFactory: (connection: Connection) => {
       return connection.getRepository(ChainTypeExt);
     },
-    inject: [RepositoryConsts.DATABASE_CONNECTION],
+    inject: [RepositoryConsts.DATABASE_CONNECTION_ERC20],
   },
 
   {
@@ -97,14 +97,14 @@ export const repositoryProviders_erc20 = [
     useFactory: (connection: Connection) => {
       return connection.getRepository(WalletAddressExt);
     },
-    inject: [RepositoryConsts.DATABASE_CONNECTION],
+    inject: [RepositoryConsts.DATABASE_CONNECTION_ERC20],
   },
   {
     provide: RepositoryConsts.LABEL_MARK_CONFIG_REPOSITORY,
     useFactory: (connection: Connection) => {
       return connection.getRepository(LabelMarkConfig);
     },
-    inject: [RepositoryConsts.DATABASE_CONNECTION],
+    inject: [RepositoryConsts.DATABASE_CONNECTION_ERC20],
   }];
 
 //polk parachin

@@ -1,6 +1,6 @@
 export class RepositoryConsts {
   public static DATABASE_CONNECTION: string = 'DATABASE_CONNECTION';
-
+  public static DATABASE_CONNECTION_ERC20: string = 'DATABASE_CONNECTION_ERC20';
   public static DATABASE_CONNECTION_CDP: string = 'DATABASE_CONNECTION_CDP';
 
   public static DATABASE_CONNECTION_MOONRIVER: string = 'DATABASE_CONNECTION_MOONRIVER';
