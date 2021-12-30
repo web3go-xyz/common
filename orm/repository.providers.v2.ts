@@ -81,7 +81,7 @@ export const repositoryProviders_erc20 = [
     useFactory: (connection: Connection) => {
       return connection.getRepository(AddressTag);
     },
-    inject: [RepositoryConsts.DATABASE_CONNECTION_ERC20],
+    inject: [RepositoryConsts.DATABASE_CONNECTION],
   },
 
   {
@@ -251,13 +251,7 @@ export const repositoryProviders_karura = [
   },
 
 
-  {
-    provide: RepositoryConsts.CUSTOM_QUERY_REPOSITORY,
-    useFactory: (connection: Connection) => {
-      return connection.getRepository(CustomQuery);
-    },
-    inject: [RepositoryConsts.DATABASE_CONNECTION],
-  },
+
 ];
 
 //Moonriver
@@ -344,6 +338,22 @@ export const repositoryProviders_moonriver = [
 
 //#region  User Management
 export const repositoryProviders_main = [
+
+  {
+    provide: RepositoryConsts.ADDRESS_TAG_REPOSITORY,
+    useFactory: (connection: Connection) => {
+      return connection.getRepository(AddressTag);
+    },
+    inject: [RepositoryConsts.DATABASE_CONNECTION],
+  },
+
+  {
+    provide: RepositoryConsts.CUSTOM_QUERY_REPOSITORY,
+    useFactory: (connection: Connection) => {
+      return connection.getRepository(CustomQuery);
+    },
+    inject: [RepositoryConsts.DATABASE_CONNECTION],
+  },
   {
     provide: RepositoryConsts.USER_REPOSITORY,
     useFactory: (connection: Connection) => {
