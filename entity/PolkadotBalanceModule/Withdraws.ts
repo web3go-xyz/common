@@ -17,4 +17,7 @@ export class Withdraws {
 
   @Column("numeric", { name: "balance_change", nullable: true })
   balanceChange: string | null;
+
+  @Column("timestamp without time zone", { name: "timestamp", nullable: true })
+  timestamp: Date | null;
 }

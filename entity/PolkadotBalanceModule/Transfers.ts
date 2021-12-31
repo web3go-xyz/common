@@ -20,4 +20,7 @@ export class Transfers {
 
   @Column("numeric", { name: "aid" })
   aid: string;
+
+  @Column("timestamp without time zone", { name: "timestamp", nullable: true })
+  timestamp: Date | null;
 }
