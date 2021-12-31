@@ -3,8 +3,6 @@ import { join } from 'path';
 import { RepositoryConsts } from './repositoryConsts';
 import { AppConfig } from './../setting/appConfig';
 
-
-
 export const databaseProviders_main = [
   {
     provide: RepositoryConsts.DATABASE_CONNECTION,
@@ -16,11 +14,13 @@ export const databaseProviders_main = [
           join(__dirname, '..', 'entity', 'ERC20Module', '*.{js,ts}'),
           join(__dirname, '..', 'entity', 'CommonModule', '*.{js,ts}'),
           join(__dirname, '..', 'entity', 'PolkParaChainModule', '*.{js,ts}'),
-          join(__dirname, '..', 'entity', 'CustomQueryModule', '*.{js,ts}')],
+          join(__dirname, '..', 'entity', 'CustomQueryModule', '*.{js,ts}'),
+        ],
       };
       return await createConnection(connectionOption);
     },
-  }];
+  },
+];
 
 export const databaseProviders_erc20 = [
   {
@@ -30,11 +30,13 @@ export const databaseProviders_erc20 = [
         ...AppConfig.typeOrmOption,
         entities: [
           join(__dirname, '..', 'entity', 'ERC20Module', '*.{js,ts}'),
-          join(__dirname, '..', 'entity', 'CommonModule', '*.{js,ts}')]
+          join(__dirname, '..', 'entity', 'CommonModule', '*.{js,ts}'),
+        ],
       };
       return await createConnection(connectionOption);
     },
-  }];
+  },
+];
 
 export const databaseProviders_cdp = [
   {
@@ -42,12 +44,15 @@ export const databaseProviders_cdp = [
     useFactory: async () => {
       let connectionOption: any = {
         ...AppConfig.typeOrmOption4CDPDB,
-        entities: [join(__dirname, '..', 'entity', 'CDPModule', '*.{js,ts}'),
-        join(__dirname, '..', 'entity', 'CommonModule', '*.{js,ts}'),],
+        entities: [
+          join(__dirname, '..', 'entity', 'CDPModule', '*.{js,ts}'),
+          join(__dirname, '..', 'entity', 'CommonModule', '*.{js,ts}'),
+        ],
       };
       return await createConnection(connectionOption);
     },
-  }];
+  },
+];
 
 export const databaseProviders_moonriver = [
   {
@@ -55,12 +60,15 @@ export const databaseProviders_moonriver = [
     useFactory: async () => {
       let connectionOption: any = {
         ...AppConfig.typeOrmOption4MoonRiverDB,
-        entities: [join(__dirname, '..', 'entity', 'MoonRiverModule', '*.{js,ts}'),
-        join(__dirname, '..', 'entity', 'CommonModule', '*.{js,ts}'),],
+        entities: [
+          join(__dirname, '..', 'entity', 'MoonRiverModule', '*.{js,ts}'),
+          join(__dirname, '..', 'entity', 'CommonModule', '*.{js,ts}'),
+        ],
       };
       return await createConnection(connectionOption);
     },
-  }];
+  },
+];
 
 export const databaseProviders_polkadot = [
   {
@@ -70,12 +78,13 @@ export const databaseProviders_polkadot = [
         ...AppConfig.typeOrmOption4PolkadotParaChain,
         entities: [
           join(__dirname, '..', 'entity', 'PolkParaChainModule', '*.{js,ts}'),
-          join(__dirname, '..', 'entity', 'CommonModule', '*.{js,ts}'),]
+          join(__dirname, '..', 'entity', 'CommonModule', '*.{js,ts}'),
+        ],
       };
       return await createConnection(connectionOption);
     },
-  }];
-
+  },
+];
 
 export const databaseProviders_kusama = [
   {
@@ -85,7 +94,8 @@ export const databaseProviders_kusama = [
         ...AppConfig.typeOrmOption4KusamaParaChain,
         entities: [
           join(__dirname, '..', 'entity', 'PolkParaChainModule', '*.{js,ts}'),
-          join(__dirname, '..', 'entity', 'CommonModule', '*.{js,ts}'),]
+          join(__dirname, '..', 'entity', 'CommonModule', '*.{js,ts}'),
+        ],
       };
       return await createConnection(connectionOption);
     },
@@ -98,8 +108,43 @@ export const databaseProviders_rmrk = [
     useFactory: async () => {
       let connectionOption: any = {
         ...AppConfig.typeOrmOption4RMRKDB,
+        entities: [join(__dirname, '..', 'entity', 'RMRKModule', '*.{js,ts}')],
+      };
+      return await createConnection(connectionOption);
+    },
+  },
+];
+
+export const databaseProviders_polkadot_balance = [
+  {
+    provide: RepositoryConsts.DATABASE_CONNECTION_POLKADOT_BALANCE,
+    useFactory: async () => {
+      let connectionOption: any = {
+        ...AppConfig.typeOrmOption4PolkadotBalanceDB,
         entities: [
-          join(__dirname, '..', 'entity', 'RMRKModule', '*.{js,ts}'),]
+          join(__dirname, '..', 'entity', 'PolkadotBalanceModule', '*.{js,ts}'),
+        ],
+      };
+      return await createConnection(connectionOption);
+    },
+  },
+];
+
+export const databaseProviders_pis = [
+  {
+    provide: RepositoryConsts.DATABASE_CONNECTION_POLKADOT_IDENTITY_SERVICE,
+    useFactory: async () => {
+      let connectionOption: any = {
+        ...AppConfig.typeOrmOption4PIS,
+        entities: [
+          join(
+            __dirname,
+            '..',
+            'entity',
+            'PolkadotIdentityServiceModule',
+            '*.{js,ts}',
+          ),
+        ],
       };
       return await createConnection(connectionOption);
     },

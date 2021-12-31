@@ -41,13 +41,23 @@ import { EventEntities } from './../entity/RMRKModule/EventEntities';
 import { NominatorRewardDetailHistory } from './../entity/MoonRiverModule/NominatorRewardDetailHistory.entity';
 import { CollectionStatisticEntities } from './../entity/RMRKModule/CollectionStatisticEntities';
 import { MonitorSubscribe } from './../entity/MoonRiverModule/MonitorSubscribe.entity';
-
+import { Accounts } from './../entity/PolkadotBalanceModule/Accounts';
+import { AccountSnapshots } from './../entity/PolkadotBalanceModule/AccountSnapshots';
+import { BalanceSets } from './../entity/PolkadotBalanceModule/BalanceSets';
+import { Deposits } from './../entity/PolkadotBalanceModule/Deposits';
+import { Endoweds } from './../entity/PolkadotBalanceModule/Endoweds';
+import { Reserveds } from './../entity/PolkadotBalanceModule/Reserveds';
+import { ReservRepatriateds } from './../entity/PolkadotBalanceModule/ReservRepatriateds';
+import { Slashes } from './../entity/PolkadotBalanceModule/Slashes';
+import { Transfers } from './../entity/PolkadotBalanceModule/Transfers';
+import { Unreserveds } from './../entity/PolkadotBalanceModule/Unreserveds';
+import { Withdraws } from './../entity/PolkadotBalanceModule/Withdraws';
+import { PISAccount } from './../entity/PolkadotIdentityServiceModule/PISAccount';
 
 export const repositoryProviders_erc20 = [
   {
     provide: RepositoryConsts.CHAINTYPE_REPOSITORY,
     useFactory: (connection: Connection) => {
-
       return connection.getRepository(ChainType);
     },
     inject: [RepositoryConsts.DATABASE_CONNECTION_ERC20],
@@ -105,7 +115,8 @@ export const repositoryProviders_erc20 = [
       return connection.getRepository(LabelMarkConfig);
     },
     inject: [RepositoryConsts.DATABASE_CONNECTION_ERC20],
-  }];
+  },
+];
 
 //polk parachin
 
@@ -134,7 +145,8 @@ export const repositoryProviders_kusama = [
     inject: [RepositoryConsts.DATABASE_CONNECTION_KUSAMA_PARACHAIN],
   },
   {
-    provide: RepositoryConsts.KUSAMA_PARA_CHAIN_CROWDLOAN_CONTRIBUTION_REPOSITORY,
+    provide:
+      RepositoryConsts.KUSAMA_PARA_CHAIN_CROWDLOAN_CONTRIBUTION_REPOSITORY,
     useFactory: (connection: Connection) => {
       return connection.getRepository(PolkParaChainCrowdloanContribution);
     },
@@ -146,8 +158,8 @@ export const repositoryProviders_kusama = [
       return connection.getRepository(PolkParaChainCrowdloanRound);
     },
     inject: [RepositoryConsts.DATABASE_CONNECTION_KUSAMA_PARACHAIN],
-  }];
-
+  },
+];
 
 //polkadot
 export const repositoryProviders_polkadot = [
@@ -173,7 +185,8 @@ export const repositoryProviders_polkadot = [
     inject: [RepositoryConsts.DATABASE_CONNECTION_POLKADOT_PARACHAIN],
   },
   {
-    provide: RepositoryConsts.POLKADOT_PARA_CHAIN_CROWDLOAN_CONTRIBUTION_REPOSITORY,
+    provide:
+      RepositoryConsts.POLKADOT_PARA_CHAIN_CROWDLOAN_CONTRIBUTION_REPOSITORY,
     useFactory: (connection: Connection) => {
       return connection.getRepository(PolkParaChainCrowdloanContribution);
     },
@@ -187,14 +200,18 @@ export const repositoryProviders_polkadot = [
     inject: [RepositoryConsts.DATABASE_CONNECTION_POLKADOT_PARACHAIN],
   },
   {
-    provide: RepositoryConsts.POLKADOT_PARA_CHAIN_CROWDLOAN_CONTRIBUTION_PROXY_DETAIL_REPOSITORY,
+    provide:
+      RepositoryConsts.POLKADOT_PARA_CHAIN_CROWDLOAN_CONTRIBUTION_PROXY_DETAIL_REPOSITORY,
     useFactory: (connection: Connection) => {
-      return connection.getRepository(PolkParaChainCrowdloanContributionProxyDetail);
+      return connection.getRepository(
+        PolkParaChainCrowdloanContributionProxyDetail,
+      );
     },
     inject: [RepositoryConsts.DATABASE_CONNECTION_POLKADOT_PARACHAIN],
   },
   {
-    provide: RepositoryConsts.POLKADOT_PARA_CHAIN_DATABASE_UPDATE_TASK_REPOSITORY,
+    provide:
+      RepositoryConsts.POLKADOT_PARA_CHAIN_DATABASE_UPDATE_TASK_REPOSITORY,
     useFactory: (connection: Connection) => {
       return connection.getRepository(PolkParaChainDatabaseUpdateTask);
     },
@@ -226,8 +243,6 @@ export const repositoryProviders_karura = [
     inject: [RepositoryConsts.DATABASE_CONNECTION_CDP],
   },
 
-
-
   {
     provide: RepositoryConsts.CDP_CHAIN_STATISTIC_REPOSITORY,
     useFactory: (connection: Connection) => {
@@ -249,9 +264,6 @@ export const repositoryProviders_karura = [
     },
     inject: [RepositoryConsts.DATABASE_CONNECTION_CDP],
   },
-
-
-
 ];
 
 //Moonriver
@@ -318,13 +330,13 @@ export const repositoryProviders_moonriver = [
     inject: [RepositoryConsts.DATABASE_CONNECTION_MOONRIVER],
   },
   {
-    provide: RepositoryConsts.MOONRIVER_NOMINATOR_REWARD_DETAIL_HISTORY_REPOSITORY,
+    provide:
+      RepositoryConsts.MOONRIVER_NOMINATOR_REWARD_DETAIL_HISTORY_REPOSITORY,
     useFactory: (connection: Connection) => {
       return connection.getRepository(NominatorRewardDetailHistory);
     },
     inject: [RepositoryConsts.DATABASE_CONNECTION_MOONRIVER],
   },
-
 
   {
     provide: RepositoryConsts.MOONRIVER_MONITOR_SUBSCRIBE_REPOSITORY,
@@ -335,10 +347,8 @@ export const repositoryProviders_moonriver = [
   },
 ];
 
-
 //#region  User Management
 export const repositoryProviders_main = [
-
   {
     provide: RepositoryConsts.ADDRESS_TAG_REPOSITORY,
     useFactory: (connection: Connection) => {
@@ -377,7 +387,6 @@ export const repositoryProviders_main = [
   },
 
   //#endregion
-
 
   //#region Platform
   {
@@ -427,6 +436,104 @@ export const repositoryProviders_rmrk = [
       return connection.getRepository(CollectionStatisticEntities);
     },
     inject: [RepositoryConsts.DATABASE_CONNECTION_RMRK],
+  },
+];
+//#endregion
+
+//#region polkadot balance
+export const repositoryProviders_polkadot_balance = [
+  {
+    provide: RepositoryConsts.POLKADOT_BALANCE_ACCOUNT_REPOSITORY,
+    useFactory: (connection: Connection) => {
+      return connection.getRepository(Accounts);
+    },
+    inject: [RepositoryConsts.DATABASE_CONNECTION_POLKADOT_BALANCE],
+  },
+  {
+    provide: RepositoryConsts.POLKADOT_BALANCE_ACCOUNT_SNAPSHOTS_REPOSITORY,
+    useFactory: (connection: Connection) => {
+      return connection.getRepository(AccountSnapshots);
+    },
+    inject: [RepositoryConsts.DATABASE_CONNECTION_POLKADOT_BALANCE],
+  },
+  {
+    provide: RepositoryConsts.POLKADOT_BALANCE_BALANCE_SETS_REPOSITORY,
+    useFactory: (connection: Connection) => {
+      return connection.getRepository(BalanceSets);
+    },
+    inject: [RepositoryConsts.DATABASE_CONNECTION_POLKADOT_BALANCE],
+  },
+  {
+    provide: RepositoryConsts.POLKADOT_BALANCE_DEPOSITS_REPOSITORY,
+    useFactory: (connection: Connection) => {
+      return connection.getRepository(Deposits);
+    },
+    inject: [RepositoryConsts.DATABASE_CONNECTION_POLKADOT_BALANCE],
+  },
+  {
+    provide: RepositoryConsts.POLKADOT_BALANCE_ENDOWEDS_REPOSITORY,
+    useFactory: (connection: Connection) => {
+      return connection.getRepository(Endoweds);
+    },
+    inject: [RepositoryConsts.DATABASE_CONNECTION_POLKADOT_BALANCE],
+  },
+  {
+    provide: RepositoryConsts.POLKADOT_BALANCE_RESERVEDS_REPOSITORY,
+    useFactory: (connection: Connection) => {
+      return connection.getRepository(Reserveds);
+    },
+    inject: [RepositoryConsts.DATABASE_CONNECTION_POLKADOT_BALANCE],
+  },
+  {
+    provide: RepositoryConsts.POLKADOT_BALANCE_RESERVREPATRIATEDS_REPOSITORY,
+    useFactory: (connection: Connection) => {
+      return connection.getRepository(ReservRepatriateds);
+    },
+    inject: [RepositoryConsts.DATABASE_CONNECTION_POLKADOT_BALANCE],
+  },
+
+  {
+    provide: RepositoryConsts.POLKADOT_BALANCE_SLASH_REPOSITORY,
+    useFactory: (connection: Connection) => {
+      return connection.getRepository(Slashes);
+    },
+    inject: [RepositoryConsts.DATABASE_CONNECTION_POLKADOT_BALANCE],
+  },
+
+  {
+    provide: RepositoryConsts.POLKADOT_BALANCE_TRANSFERS_REPOSITORY,
+    useFactory: (connection: Connection) => {
+      return connection.getRepository(Transfers);
+    },
+    inject: [RepositoryConsts.DATABASE_CONNECTION_POLKADOT_BALANCE],
+  },
+
+  {
+    provide: RepositoryConsts.POLKADOT_BALANCE_UNRESERVEDS_REPOSITORY,
+    useFactory: (connection: Connection) => {
+      return connection.getRepository(Unreserveds);
+    },
+    inject: [RepositoryConsts.DATABASE_CONNECTION_POLKADOT_BALANCE],
+  },
+
+  {
+    provide: RepositoryConsts.POLKADOT_BALANCE_WITHDRAWS_REPOSITORY,
+    useFactory: (connection: Connection) => {
+      return connection.getRepository(Withdraws);
+    },
+    inject: [RepositoryConsts.DATABASE_CONNECTION_POLKADOT_BALANCE],
+  },
+];
+//#endregion
+
+//#region polkadot balance
+export const repositoryProviders_pis = [
+  {
+    provide: RepositoryConsts.POLKADOT_IDENTITY_ACCOUNT_REPOSITORY,
+    useFactory: (connection: Connection) => {
+      return connection.getRepository(PISAccount);
+    },
+    inject: [RepositoryConsts.DATABASE_CONNECTION_POLKADOT_IDENTITY_SERVICE],
   },
 ];
 //#endregion
