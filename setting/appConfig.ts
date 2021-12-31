@@ -4,7 +4,7 @@ import { TaskType } from './../task/enum/TaskType';
 export class AppConfig {
   public static typeOrmOption = {
     type: 'mysql',
-    host: '127.0.0.1',
+    host: '',
     port: 3306,
     username: 'root',
     password: '',
@@ -15,7 +15,7 @@ export class AppConfig {
 
   public static typeOrmOption4PolkadotParaChain = {
     type: 'mysql',
-    host: '127.0.0.1',
+    host: '',
     port: 3306,
     username: 'root',
     password: '',
@@ -25,7 +25,7 @@ export class AppConfig {
   };
   public static typeOrmOption4KusamaParaChain = {
     type: 'mysql',
-    host: '127.0.0.1',
+    host: '',
     port: 3306,
     username: 'root',
     password: '',
@@ -36,7 +36,7 @@ export class AppConfig {
 
   public static typeOrmOption4CDPDB = {
     type: 'mysql',
-    host: '127.0.0.1',
+    host: '',
     port: 3306,
     username: 'root',
     password: '',
@@ -47,29 +47,48 @@ export class AppConfig {
 
   public static typeOrmOption4MoonRiverDB = {
     type: 'mysql',
-    host: '127.0.0.1',
+    host: '',
     port: 3306,
     username: 'root',
     password: '',
     database: 'ido-moonriver',
-    synchronize: false,
+    synchronize: true,
     logging: false,
   };
   public static typeOrmOption4RMRKDB = {
-
     type: 'postgres',
-    host: '127.0.0.1',
+    host: '',
     port: 5432,
     username: 'postgres',
     password: '',
-    database: 'postgres',
+    database: 'dev-rmrk',
+    synchronize: false,
+    logging: false,
+  };
+  public static typeOrmOption4PolkadotBalanceDB = {
+    type: 'postgres',
+    host: '',
+    port: 5432,
+    username: 'postgres',
+    password: '',
+    database: 'dev-polkadot',
+    synchronize: false,
+    logging: false,
+  };
+  public static typeOrmOption4PIS = {
+    type: 'postgres',
+    host: '',
+    port: 5432,
+    username: 'postgres',
+    password: '',
+    database: 'dev-pis',
     synchronize: false,
     logging: false,
   };
 
   public static redisOption: RedisModuleOptions = {
     port: 6379,
-    host: '127.0.0.1',
+    host: '',
     password: '',
     db: 0,
   };
@@ -82,34 +101,35 @@ export class AppConfig {
   public static scheduleOption = {
     walletAddressRefreshIntervalCron: {
       cron: '0 0 */3 * * *',
-      enable: false
+      enable: false,
     },
     balanceTransactionsRefreshIntervalCron: {
       cron: '0 0 */3 * * *',
-      enable: false
+      enable: false,
     },
     kusama_polkParaChainRefreshIntervalCron: {
       cron: '0 */2 * * * *',
-      enable: false
+      enable: false,
     },
     polkadot_polkParaChainRefreshIntervalCron: {
       cron: '0 */2 * * * *',
-      enable: false
+      enable: true,
     },
-    polkadot_polkParaChainCrowdloanContributionOnParallelProxyDetailRefreshIntervalCron: {
-      cron: '0 */2 * * * *',
-      enable: false
-    },
-    polkadot_polkParaChainCrowdloanContributionOnBifrostProxyDetailRefreshIntervalCron: {
-      cron: '0 */2 * * * *',
-      enable: false
-    },
+    polkadot_polkParaChainCrowdloanContributionOnParallelProxyDetailRefreshIntervalCron:
+      {
+        cron: '0 */2 * * * *',
+        enable: false,
+      },
+    polkadot_polkParaChainCrowdloanContributionOnBifrostProxyDetailRefreshIntervalCron:
+      {
+        cron: '0 */2 * * * *',
+        enable: false,
+      },
 
     karuraCDPRefreshIntervalCron: {
       cron: '0 0 */2 * * *',
-      enable: false
+      enable: false,
     },
-
   };
 
   public static queueOption = {
@@ -133,9 +153,7 @@ export class AppConfig {
   public static queue_polk_para_chains_crowdloan_contribution_proxy_detail_query: string =
     'polk_para_chains_crowdloan_contribution_proxy_detail_query';
 
-  public static queue_karura_CDP_refresh: string =
-    'karura_CDP_refresh';
-
+  public static queue_karura_CDP_refresh: string = 'karura_CDP_refresh';
 
   public static queue_address_activities_analysis_concurrency: number = 5;
   public static queue_chain_wallet_address_refresh_concurrency: number = 5;
@@ -144,7 +162,6 @@ export class AppConfig {
   public static queue_polk_para_chains_crowdloan_contribution_proxy_detail_query_concurrency: number = 1;
 
   public static queue_karura_CDP_refresh_concurrency: number = 1;
-
 
   public static initilize() {
     AppConfig.queueOption.queueMap = {};
@@ -164,27 +181,33 @@ export class AppConfig {
 
     AppConfig.queueOption.queueMap[
       TaskType.polk_para_chains_crowdloan_contribution_proxy_detail_query
-    ] = AppConfig.queue_polk_para_chains_crowdloan_contribution_proxy_detail_query;
+    ] =
+      AppConfig.queue_polk_para_chains_crowdloan_contribution_proxy_detail_query;
 
-    AppConfig.queueOption.queueMap[
-      TaskType.karura_CDP_refresh
-    ] = AppConfig.queue_karura_CDP_refresh;
-
+    AppConfig.queueOption.queueMap[TaskType.karura_CDP_refresh] =
+      AppConfig.queue_karura_CDP_refresh;
 
     console.log(AppConfig);
   }
 
   public static START_TIMESTAMP: number = 1230739200;
 
-  public static kusamaCrowdloanDataSourceApiUrl: string = 'https://api.subquery.network/sq/subvis-io/kusama-auction';
-  public static polkadotCrowdloanDataSourceApiUrl: string = 'https://api.subquery.network/sq/bianyunjian/polkadot-crowdloans';
-  public static polkadotCrowdloanParallelIndexerUrl: string = 'https://api.subquery.network/sq/parallel-finance/auction-subquery';
-  public static polkadotCrowdloanBifrostIndexerUrl: string = 'https://bifrost-service.bifrost.finance/polkadot-subql';
+  public static kusamaCrowdloanDataSourceApiUrl: string =
+    'https://api.subquery.network/sq/subvis-io/kusama-auction';
+  public static polkadotCrowdloanDataSourceApiUrl: string =
+    'https://api.subquery.network/sq/bianyunjian/polkadot-crowdloans';
+  public static polkadotCrowdloanParallelIndexerUrl: string =
+    'https://api.subquery.network/sq/parallel-finance/auction-subquery';
+  public static polkadotCrowdloanBifrostIndexerUrl: string =
+    'https://bifrost-service.bifrost.finance/polkadot-subql';
 
-  public static karuraCDPDataSourceApiUrl: string = 'https://api.subquery.network/sq/AcalaNetwork/karura';
+  public static karuraCDPDataSourceApiUrl: string =
+    'https://api.subquery.network/sq/AcalaNetwork/karura';
 
   //public static moonRiverDataSourceApiUrl: string = 'https://api.subquery.network/sq/Moehringen/moonriver';
-  public static moonRiverDataSourceApiUrl: string = 'https://api.subquery.network/sq/bianyunjian/moonriver-staking-indexer';
+  public static moonRiverDataSourceApiUrl: string =
+    'https://api.subquery.network/sq/bianyunjian/moonriver-staking-indexer';
 
-  public static erc20DataSourceApiUrl: string = 'https://api.thegraph.com/subgraphs/name/moehringen/erc20indexer'
+  public static erc20DataSourceApiUrl: string =
+    'https://api.thegraph.com/subgraphs/name/moehringen/erc20indexer';
 }
