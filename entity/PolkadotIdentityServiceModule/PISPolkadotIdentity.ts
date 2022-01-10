@@ -31,7 +31,7 @@ export class PISPolkadotIdentity {
   @Column({type:'text', name: 'twitter', nullable: true })
   twitter: string | null;
 
-  @Column({ type:'text', name: 'account_public_key'})
+  @Column({ type:'text', name: 'account_public_key', nullable: true})
   accountPublicKey: string;
 
   @Column({ type:'text', name: 'account_polkadot'})
