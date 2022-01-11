@@ -1,4 +1,3 @@
-import { AppConfig } from './../../setting/appConfig';
 import { PrimaryGeneratedColumn, Column, Entity, Index } from 'typeorm';
 
 @Entity()
@@ -38,7 +37,7 @@ export class WalletAddressInfo {
   @Column({
     type: 'bigint',
     comment: 'the timestamp (seconds) of first transaction occured',
-    default: AppConfig.START_TIMESTAMP,
+    default: 1230739200,
   })
   firstInDate: number;
 
