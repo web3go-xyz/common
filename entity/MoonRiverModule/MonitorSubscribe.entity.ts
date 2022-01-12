@@ -44,7 +44,7 @@ export class MonitorSubscribe {
     last_notify_messsage_hash: string;
 
     @ApiProperty()
-    @Column({ comment: 'last notify time', type: 'datetime', nullable: false })
+    @Column({ comment: 'last notify time', nullable: false })
     last_notify_time: Date;
 
 }
