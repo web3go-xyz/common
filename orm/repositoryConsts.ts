@@ -116,6 +116,9 @@ export class RepositoryConsts {
   //Platform
   public static PLATFORM_STATISTIC_REPOSITORY: string =
     'PLATFORM_STATISTIC_REPOSITORY';
+  public static PROFILE_ADDRESS_SEARCH_REPOSITORY: string =
+    'PROFILE_ADDRESS_SEARCH_REPOSITORY';
+
 
   //RMRK
   public static RMRK_NFT_REPOSITORY: string = 'RMRK_NFT_REPOSITORY';

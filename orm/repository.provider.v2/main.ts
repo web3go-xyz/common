@@ -6,8 +6,9 @@ import { UserVerifyCode } from './../../entity/UserManagementModule/UserVerifyCo
 import { UserFavorite } from './../../entity/UserManagementModule/UserFavorite.entity';
 import { AddressTag } from './../../entity/CommonModule/addressTag.entity';
 import { PlatformStatistic } from './../../entity/CommonModule/PlatformStatistic.entity';
+import { ProfileAddressSearchStatistic } from './../../entity/CommonModule/ProfileAddressSearchStatistic.entity';
 
-//#region  User Management
+//#region Main 
 export const repositoryProviders_main = [
   {
     provide: RepositoryConsts.ADDRESS_TAG_REPOSITORY,
@@ -24,6 +25,8 @@ export const repositoryProviders_main = [
     },
     inject: [RepositoryConsts.DATABASE_CONNECTION],
   },
+
+  // User Management
   {
     provide: RepositoryConsts.USER_REPOSITORY,
     useFactory: (connection: Connection) => {
@@ -53,6 +56,14 @@ export const repositoryProviders_main = [
     provide: RepositoryConsts.PLATFORM_STATISTIC_REPOSITORY,
     useFactory: (connection: Connection) => {
       return connection.getRepository(PlatformStatistic);
+    },
+    inject: [RepositoryConsts.DATABASE_CONNECTION],
+  },
+
+  {
+    provide: RepositoryConsts.PROFILE_ADDRESS_SEARCH_REPOSITORY,
+    useFactory: (connection: Connection) => {
+      return connection.getRepository(ProfileAddressSearchStatistic);
     },
     inject: [RepositoryConsts.DATABASE_CONNECTION],
   },
