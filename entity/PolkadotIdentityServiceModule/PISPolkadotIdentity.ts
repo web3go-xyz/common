@@ -40,6 +40,8 @@ export class PISPolkadotIdentity {
   @Column({ type: 'varchar', length: 255, name: 'account_polkadot' })
   accountPolkadot: string;
 
+  @Column({ type: 'varchar', length: 255, name: 'sub_of', nullable: true })
+  subOf: string;
 
   @Column({ type: 'timestamp', name: 'last_update_time' })
   lastUpdateTime: Date;
