@@ -40,6 +40,7 @@ import { RemarkEntities } from './../entity/RMRKModule/RemarkEntities';
 import { EventEntities } from './../entity/RMRKModule/EventEntities';
 import { NominatorRewardDetailHistory } from './../entity/MoonRiverModule/NominatorRewardDetailHistory.entity';
 import { CollectionStatisticEntities } from './../entity/RMRKModule/CollectionStatisticEntities';
+import { NFTOwnershipHistory } from './../entity/RMRKModule/NFTOwnershipHistory';
 
 /**
  * @deprecated we should use v2 version instead of current
@@ -396,6 +397,13 @@ export const repositoryProviders = [
     provide: RepositoryConsts.RMRK_COLLECTION_STATISTIC_REPOSITORY,
     useFactory: (connection: Connection) => {
       return connection.getRepository(CollectionStatisticEntities);
+    },
+    inject: [RepositoryConsts.DATABASE_CONNECTION_RMRK],
+  },
+  {
+    provide: RepositoryConsts.RMRK_NFT_OWNERSHIP_HISTORY_REPOSITORY,
+    useFactory: (connection: Connection) => {
+      return connection.getRepository(NFTOwnershipHistory);
     },
     inject: [RepositoryConsts.DATABASE_CONNECTION_RMRK],
   },

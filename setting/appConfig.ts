@@ -4,10 +4,10 @@ import { TaskType } from './../task/enum/TaskType';
 export class AppConfig {
   public static typeOrmOption = {
     type: 'mysql',
-    host: '',
+    host: '106.52.138.224',
     port: 3306,
     username: 'root',
-    password: '',
+    password: 'devMysql2022!@#',
     database: 'ido-dev',
     synchronize: false,
     logging: false,
@@ -15,20 +15,20 @@ export class AppConfig {
 
   public static typeOrmOption4PolkadotParaChain = {
     type: 'mysql',
-    host: '',
+    host: '106.52.138.224',
     port: 3306,
     username: 'root',
-    password: '',
+    password: 'devMysql2022!@#',
     database: 'ido-polkadot',
     synchronize: false,
     logging: false,
   };
   public static typeOrmOption4KusamaParaChain = {
     type: 'mysql',
-    host: '',
+    host: '106.52.138.224',
     port: 3306,
     username: 'root',
-    password: '',
+    password: 'devMysql2022!@#',
     database: 'ido-dev',
     synchronize: false,
     logging: false,
@@ -36,10 +36,10 @@ export class AppConfig {
 
   public static typeOrmOption4CDPDB = {
     type: 'mysql',
-    host: '',
+    host: '106.52.138.224',
     port: 3306,
     username: 'root',
-    password: '',
+    password: 'devMysql2022!@#',
     database: 'ido-price',
     synchronize: false,
     logging: false,
@@ -47,40 +47,40 @@ export class AppConfig {
 
   public static typeOrmOption4MoonRiverDB = {
     type: 'mysql',
-    host: '',
+    host: '106.52.138.224',
     port: 3306,
     username: 'root',
-    password: '',
+    password: 'devMysql2022!@#',
     database: 'ido-moonriver',
     synchronize: true,
     logging: false,
   };
   public static typeOrmOption4RMRKDB = {
     type: 'postgres',
-    host: '',
+    host: '106.52.138.224',
     port: 5432,
     username: 'postgres',
-    password: '',
+    password: 'dev!@#2022postgres',
     database: 'dev-rmrk',
     synchronize: false,
     logging: false,
   };
   public static typeOrmOption4PolkadotBalanceDB = {
     type: 'postgres',
-    host: '',
+    host: '106.52.138.224',
     port: 5432,
     username: 'postgres',
-    password: '',
+    password: 'dev!@#2022postgres',
     database: 'dev-polkadot',
     synchronize: false,
     logging: false,
   };
   public static typeOrmOption4PIS = {
     type: 'postgres',
-    host: '',
+    host: '106.52.138.224',
     port: 5432,
     username: 'postgres',
-    password: '',
+    password: 'dev!@#2022postgres',
     database: 'dev-pis',
     synchronize: false,
     logging: false,
@@ -88,8 +88,8 @@ export class AppConfig {
 
   public static redisOption: RedisModuleOptions = {
     port: 6379,
-    host: '',
-    password: '',
+    host: '106.52.138.224',
+    password: 'dev2022Redis##@@!!',
     db: 0,
   };
 
