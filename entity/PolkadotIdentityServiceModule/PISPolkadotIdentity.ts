@@ -1,4 +1,4 @@
-import { Column, Entity, Index, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, Index, PrimaryColumn } from 'typeorm';
 
 @Index('pis_identity_pkey', ['id'], { unique: true })
 @Entity('pis_identity', { schema: 'public' })
@@ -7,7 +7,7 @@ export class PISPolkadotIdentity {
     this.lastUpdateTime = new Date();
   }
 
-  @Column({ type: 'varchar', length: 255, name: 'id', primary: true })
+  @PrimaryColumn({ type: 'varchar', length: 255, name: 'id', primary: true })
   id: string;
 
   @Column({ type: 'text', name: 'display', nullable: true })
@@ -40,6 +40,8 @@ export class PISPolkadotIdentity {
   @Column({ type: 'varchar', length: 255, name: 'account_polkadot' })
   accountPolkadot: string;
 
+  @Column({ type: 'varchar', length: 255, name: 'sub_of', nullable: true })
+  subOf: string;
 
   @Column({ type: 'timestamp', name: 'last_update_time' })
   lastUpdateTime: Date;
