@@ -7,6 +7,7 @@ import { UserFavorite } from './../../entity/UserManagementModule/UserFavorite.e
 import { AddressTag } from './../../entity/CommonModule/addressTag.entity';
 import { PlatformStatistic } from './../../entity/CommonModule/PlatformStatistic.entity';
 import { ProfileAddressSearchStatistic } from './../../entity/CommonModule/ProfileAddressSearchStatistic.entity';
+import { UserAddressBundle } from './../../entity/UserManagementModule/UserAddressBundle.entity';
 
 //#region Main 
 export const repositoryProviders_main = [
@@ -48,7 +49,13 @@ export const repositoryProviders_main = [
     },
     inject: [RepositoryConsts.DATABASE_CONNECTION],
   },
-
+  {
+    provide: RepositoryConsts.USER_ADDRESS_BUNDLE_REPOSITORY,
+    useFactory: (connection: Connection) => {
+      return connection.getRepository(UserAddressBundle);
+    },
+    inject: [RepositoryConsts.DATABASE_CONNECTION],
+  },
   //#endregion
 
   //#region Platform

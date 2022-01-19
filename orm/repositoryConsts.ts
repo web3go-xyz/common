@@ -112,6 +112,7 @@ export class RepositoryConsts {
   public static USER_REPOSITORY: string = 'USER_REPOSITORY';
   public static USER_VERIFY_CODE_REPOSITORY: string =
     'USER_VERIFY_CODE_REPOSITORY';
+  public static USER_ADDRESS_BUNDLE_REPOSITORY: string = 'USER_ADDRESS_BUNDLE_REPOSITORY';
 
   //Platform
   public static PLATFORM_STATISTIC_REPOSITORY: string =
