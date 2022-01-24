@@ -31,6 +31,9 @@ export class PISPolkadotIdentity {
   @Column({ type: 'text', name: 'twitter', nullable: true })
   twitter: string | null;
 
+  @Column({ type: 'text', name: 'judgements', nullable: true })
+  judgements: string | null;
+
   @Column({ type: 'jsonb', name: 'raw_identity_in_json', nullable: true })
   rawIdentityInJson: object | null;
 
@@ -38,11 +41,14 @@ export class PISPolkadotIdentity {
   accountPublicKey: string;
 
   @Column({ type: 'varchar', length: 255, name: 'account_polkadot' })
-  accountPolkadot: string;
+  accountPolkadot: string = '';
 
   @Column({ type: 'varchar', length: 255, name: 'sub_of', nullable: true })
   subOf: string;
 
   @Column({ type: 'timestamp', name: 'last_update_time' })
   lastUpdateTime: Date;
+
+  @Column({ type: 'text', name: 'network', nullable: false, default: 'polkadot' })
+  network: string | null = 'polkadot';
 }
