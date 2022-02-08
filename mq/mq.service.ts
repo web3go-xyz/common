@@ -1,8 +1,7 @@
-import { Inject, Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { MyLogger } from './../log/logger.service';
 
 import { RedisService } from 'nestjs-redis';
-import { REQUEST } from '@nestjs/core';
 
 @Injectable()
 export class MQService {

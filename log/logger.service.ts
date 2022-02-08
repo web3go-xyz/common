@@ -1,20 +1,43 @@
-import { Logger } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 
+@Injectable()
 export class MyLogger extends Logger {
-  debug(message: string) {
-    // add your tailored logic here
-    super.debug(message, '');
+  modulePrefix: string = 'unknown';
+  constructor(modulePrefix: string) {
+    super();
+    this.modulePrefix = modulePrefix;
   }
-  warn(message: string) {
-    super.warn(message, '');
+  prefix() {
+    return `[${this.modulePrefix}] `;
   }
-  verbose(message: string) {
-    super.verbose(message, '');
+  constructMessage(msgObj: any[]) {
+    let message = this.prefix();
+    if (msgObj && msgObj.length > 0) {
+      for (let index = 0; index < msgObj.length; index++) {
+        const element = msgObj[index];
+        if (typeof element === 'string') {
+          message += ' ' + element;
+        }
+        else {
+          message += ' ' + JSON.stringify(element);
+        }
+      }
+    }
+    return message;
   }
-  error(message: string) {
-    super.error(message, '');
+  debug(...msgObj: any[]) {
+    super.debug(this.constructMessage(msgObj), '');
   }
-  log(message: string) {
-    super.log(message, '');
+  warn(...msgObj: any[]) {
+    super.warn(this.constructMessage(msgObj), '');
+  }
+  verbose(...msgObj: any[]) {
+    super.verbose(this.constructMessage(msgObj), '');
+  }
+  error(...msgObj: any[]) {
+    super.error(this.constructMessage(msgObj), '');
+  }
+  log(...msgObj: any[]) {
+    super.log(this.constructMessage(msgObj), '');
   }
 }
