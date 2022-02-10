@@ -7,17 +7,17 @@ export class Accounts {
   id: string;
 
   @Column("numeric", { name: "free_balance", nullable: true })
-  freeBalance: string | null;
+  freeBalance: bigint | null;
 
   @Column("numeric", { name: "reserve_balance", nullable: true })
-  reserveBalance: string | null;
+  reserveBalance: bigint | null;
 
   @Column("numeric", { name: "total_balance", nullable: true })
-  totalBalance: string | null;
+  totalBalance: bigint | null;
 
-  @Column("numeric", { name: "aid" })
-  aid: string;
+  @Column("numeric", { name: "aid", nullable: true })
+  aid: string | null;
 
-  @Column("numeric", { name: "at_block" })
-  atBlock: string;
+  @Column("numeric", { name: "at_block", nullable: true })
+  atBlock: string | null;
 }
