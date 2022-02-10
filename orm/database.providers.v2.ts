@@ -7,3 +7,4 @@ export * from './database.provider.v2/moonriver';
 export * from './database.provider.v2/rmrk';
 export * from './database.provider.v2/polkadot.identity';
 export * from './database.provider.v2/polkadot.balance';
+export * from './database.provider.v2/moonbeam.balance';
