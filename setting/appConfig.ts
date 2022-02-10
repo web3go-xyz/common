@@ -75,16 +75,26 @@ export class AppConfig {
     synchronize: false,
     logging: false,
   };
-  public static typeOrmOption4PIS = {
+	public static typeOrmOption4PIS = {
+	    type: 'postgres',
+	    host: '',
+	    port: 5432,
+	    username: 'postgres',
+	    password: '',
+	    database: 'dev-pis',
+	    synchronize: false,
+	    logging: false,
+  };
+  public static typeOrmOption4MoonbeamBalanceDB = {
     type: 'postgres',
     host: '',
     port: 5432,
     username: 'postgres',
     password: '',
-    database: 'dev-pis',
+    database: 'dev-moonbeam-balance',
     synchronize: false,
     logging: false,
-  };
+};
 
   public static redisOption: RedisModuleOptions = {
     port: 6379,
