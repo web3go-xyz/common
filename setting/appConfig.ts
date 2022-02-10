@@ -2,99 +2,72 @@ import { RedisModuleOptions } from 'nestjs-redis';
 import { TaskType } from './../task/enum/TaskType';
 
 export class AppConfig {
-  public static typeOrmOption = {
+  public static mysqlConnection = {
     type: 'mysql',
     host: '',
     port: 3306,
-    username: 'root',
+    username: '',
     password: '',
-    database: 'ido-dev',
     synchronize: false,
     logging: false,
+  }
+
+  public static postgresConnection = {
+    type: 'postgres',
+    host: '',
+    port: 5432,
+    username: '',
+    password: '',
+    synchronize: false,
+    logging: false,
+  }
+  public static typeOrmOption = {
+    ...this.mysqlConnection,
+    database: 'ido-dev',
   };
 
   public static typeOrmOption4PolkadotParaChain = {
-    type: 'mysql',
-    host: '',
-    port: 3306,
-    username: 'root',
-    password: '',
+    ...this.mysqlConnection,
     database: 'ido-polkadot',
-    synchronize: false,
-    logging: false,
   };
   public static typeOrmOption4KusamaParaChain = {
-    type: 'mysql',
-    host: '',
-    port: 3306,
-    username: 'root',
-    password: '',
+    ...this.mysqlConnection,
     database: 'ido-dev',
-    synchronize: false,
-    logging: false,
   };
 
   public static typeOrmOption4CDPDB = {
-    type: 'mysql',
-    host: '',
-    port: 3306,
-    username: 'root',
-    password: '',
+    ...this.mysqlConnection,
     database: 'ido-price',
-    synchronize: false,
-    logging: false,
+
   };
 
   public static typeOrmOption4MoonRiverDB = {
-    type: 'mysql',
-    host: '',
-    port: 3306,
-    username: 'root',
-    password: '',
+    ...this.mysqlConnection,
     database: 'ido-moonriver',
-    synchronize: true,
-    logging: false,
   };
+  // public static typeOrmOption4MoonRiverDB = {
+  //   ...this.postgresConnection,
+  //   database: 'dev-moonbeam',
+  // };
   public static typeOrmOption4RMRKDB = {
-    type: 'postgres',
-    host: '',
-    port: 5432,
-    username: 'postgres',
-    password: '',
+    ...this.postgresConnection,
     database: 'dev-rmrk',
-    synchronize: false,
-    logging: false,
+
   };
   public static typeOrmOption4PolkadotBalanceDB = {
-    type: 'postgres',
-    host: '',
-    port: 5432,
-    username: 'postgres',
-    password: '',
+    ...this.postgresConnection,
     database: 'dev-polkadot',
-    synchronize: false,
-    logging: false,
+
   };
-	public static typeOrmOption4PIS = {
-	    type: 'postgres',
-	    host: '',
-	    port: 5432,
-	    username: 'postgres',
-	    password: '',
-	    database: 'dev-pis',
-	    synchronize: false,
-	    logging: false,
+  public static typeOrmOption4PIS = {
+    ...this.postgresConnection,
+    database: 'dev-pis',
+
   };
   public static typeOrmOption4MoonbeamBalanceDB = {
-    type: 'postgres',
-    host: '',
-    port: 5432,
-    username: 'postgres',
-    password: '',
+    ...this.postgresConnection,
     database: 'dev-moonbeam-balance',
-    synchronize: false,
-    logging: false,
-};
+  };
 
   public static redisOption: RedisModuleOptions = {
     port: 6379,
@@ -123,18 +96,18 @@ export class AppConfig {
     },
     polkadot_polkParaChainRefreshIntervalCron: {
       cron: '0 */2 * * * *',
-      enable: true,
+      enable: false,
     },
     polkadot_polkParaChainCrowdloanContributionOnParallelProxyDetailRefreshIntervalCron:
-      {
-        cron: '0 */2 * * * *',
-        enable: false,
-      },
+    {
+      cron: '0 */2 * * * *',
+      enable: false,
+    },
     polkadot_polkParaChainCrowdloanContributionOnBifrostProxyDetailRefreshIntervalCron:
-      {
-        cron: '0 */2 * * * *',
-        enable: false,
-      },
+    {
+      cron: '0 */2 * * * *',
+      enable: false,
+    },
 
     karuraCDPRefreshIntervalCron: {
       cron: '0 0 */2 * * *',

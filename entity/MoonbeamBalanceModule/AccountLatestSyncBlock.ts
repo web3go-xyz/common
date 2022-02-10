@@ -6,6 +6,15 @@ export class AccountsLatestSyncBlock {
   @Column("text", { primary: true, name: "id" })
   id: string;
 
-  @Column("numeric", { name: "block_number"})
+  @Column("text", { name: "chain_name" })
+  chain_name: string;
+
+  @Column("text", { name: "ws_endpoint" })
+  ws_endpoint: string;
+
+  @Column("numeric", { name: "block_number", comment: 'the block_number synced with account balance' })
   blockNumber: number;
+
+  @Column("timestamp", { name: "sync_time" })
+  sync_time: Date;
 }
