@@ -11,7 +11,6 @@ export const databaseProviders_kusama = [
         ...AppConfig.typeOrmOption4KusamaParaChain,
         entities: [
           join(__dirname, '../..', 'entity', 'PolkParaChainModule', '*.{js,ts}'),
-          join(__dirname, '../..', 'entity', 'CommonModule', '*.{js,ts}'),
         ],
       };
       return await createConnection(connectionOption);

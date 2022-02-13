@@ -11,7 +11,6 @@ export const databaseProviders_cdp = [
         ...AppConfig.typeOrmOption4CDPDB,
         entities: [
           join(__dirname, '../..', 'entity', 'CDPModule', '*.{js,ts}'),
-          join(__dirname, '../..', 'entity', 'CommonModule', '*.{js,ts}'),
         ],
       };
       return await createConnection(connectionOption);

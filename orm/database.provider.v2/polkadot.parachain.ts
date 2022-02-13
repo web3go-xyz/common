@@ -11,7 +11,6 @@ export const databaseProviders_polkadot = [
         ...AppConfig.typeOrmOption4PolkadotParaChain,
         entities: [
           join(__dirname, '../..', 'entity', 'PolkParaChainModule', '*.{js,ts}'),
-          join(__dirname, '../..', 'entity', 'CommonModule', '*.{js,ts}'),
         ],
       };
       return await createConnection(connectionOption);

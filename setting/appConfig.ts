@@ -6,7 +6,7 @@ export class AppConfig {
     type: 'mysql',
     host: '',
     port: 3306,
-    username: '',
+    username: 'root',
     password: '',
     synchronize: false,
     logging: false,
@@ -16,14 +16,18 @@ export class AppConfig {
     type: 'postgres',
     host: '',
     port: 5432,
-    username: '',
+    username: 'postgres',
     password: '',
     synchronize: false,
     logging: false,
   }
-  public static typeOrmOption = {
+  public static typeOrmOptionPlatform = {
     ...this.mysqlConnection,
-    database: 'ido-dev',
+    database: 'ido-platform',
+  };
+  public static typeOrmOptionErc20 = {
+    ...this.mysqlConnection,
+    database: 'ido-erc20',
   };
 
   public static typeOrmOption4PolkadotParaChain = {
@@ -32,7 +36,7 @@ export class AppConfig {
   };
   public static typeOrmOption4KusamaParaChain = {
     ...this.mysqlConnection,
-    database: 'ido-dev',
+    database: 'ido-kusama-crowdloan',
   };
 
   public static typeOrmOption4CDPDB = {

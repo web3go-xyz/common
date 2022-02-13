@@ -11,7 +11,6 @@ export const databaseProviders_moonriver = [
         ...AppConfig.typeOrmOption4MoonRiverDB,
         entities: [
           join(__dirname, '../..', 'entity', 'MoonRiverModule', '*.{js,ts}'),
-          join(__dirname, '../..', 'entity', 'CommonModule', '*.{js,ts}'),
         ],
       };
       return await createConnection(connectionOption);

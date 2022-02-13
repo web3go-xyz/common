@@ -4,7 +4,6 @@ import { Connection } from 'typeorm';
 import { WalletAddress } from './../../entity/ERC20Module/walletAddress.entity';
 import { WalletAddressInfo } from './../../entity/ERC20Module/walletAddressInfo.entity';
 import { WalletAddressTransaction } from './../../entity/ERC20Module/walletAddressTransaction.entity';
-import { AddressTag } from './../../entity/CommonModule/addressTag.entity';
 import { ChainTypeExt } from './../../entity/ERC20Module/chainTypeExt.entity';
 import { WalletAddressExt } from './../../entity/ERC20Module/walletAddressExt.entity';
 import { LabelMarkConfig } from './../../entity/ERC20Module/labelMarkConfig.entity';
@@ -41,13 +40,7 @@ export const repositoryProviders_erc20 = [
     inject: [RepositoryConsts.DATABASE_CONNECTION_ERC20],
   },
 
-  {
-    provide: RepositoryConsts.ADDRESS_TAG_REPOSITORY,
-    useFactory: (connection: Connection) => {
-      return connection.getRepository(AddressTag);
-    },
-    inject: [RepositoryConsts.DATABASE_CONNECTION],
-  },
+
 
   {
     provide: RepositoryConsts.CHAINTYPE_EXT_REPOSITORY,
