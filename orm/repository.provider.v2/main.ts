@@ -8,6 +8,7 @@ import { AddressTag } from './../../entity/CommonModule/addressTag.entity';
 import { PlatformStatistic } from './../../entity/CommonModule/PlatformStatistic.entity';
 import { ProfileAddressSearchStatistic } from './../../entity/CommonModule/ProfileAddressSearchStatistic.entity';
 import { UserAddressBundle } from './../../entity/UserManagementModule/UserAddressBundle.entity';
+import { AnalyticsInsightDashboard } from '../../entity/CustomQueryModule/AnalyticsInsightDashboard.entity';
 
 //#region Main 
 export const repositoryProviders_main = [
@@ -23,6 +24,14 @@ export const repositoryProviders_main = [
     provide: RepositoryConsts.CUSTOM_QUERY_REPOSITORY,
     useFactory: (connection: Connection) => {
       return connection.getRepository(CustomQuery);
+    },
+    inject: [RepositoryConsts.DATABASE_CONNECTION],
+  },
+
+  {
+    provide: RepositoryConsts.ANALYTICS_INSIGHT_DASHBOARD_REPOSITORY,
+    useFactory: (connection: Connection) => {
+      return connection.getRepository(AnalyticsInsightDashboard);
     },
     inject: [RepositoryConsts.DATABASE_CONNECTION],
   },
