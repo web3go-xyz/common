@@ -1,7 +1,6 @@
 import { Connection } from 'typeorm';
 import { RepositoryConsts } from './../../orm/repositoryConsts';
 import { Accounts } from './../../entity/PolkadotBalanceModule/Accounts';
-import { AccountSnapshots } from './../../entity/PolkadotBalanceModule/AccountSnapshots';
 import { BalanceSets } from './../../entity/PolkadotBalanceModule/BalanceSets';
 import { Deposits } from './../../entity/PolkadotBalanceModule/Deposits';
 import { Endoweds } from './../../entity/PolkadotBalanceModule/Endoweds';
@@ -21,13 +20,7 @@ export const repositoryProviders_polkadot_balance = [
     },
     inject: [RepositoryConsts.DATABASE_CONNECTION_POLKADOT_BALANCE],
   },
-  {
-    provide: RepositoryConsts.POLKADOT_BALANCE_ACCOUNT_SNAPSHOTS_REPOSITORY,
-    useFactory: (connection: Connection) => {
-      return connection.getRepository(AccountSnapshots);
-    },
-    inject: [RepositoryConsts.DATABASE_CONNECTION_POLKADOT_BALANCE],
-  },
+
   {
     provide: RepositoryConsts.POLKADOT_BALANCE_BALANCE_SETS_REPOSITORY,
     useFactory: (connection: Connection) => {

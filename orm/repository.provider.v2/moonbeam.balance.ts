@@ -1,7 +1,6 @@
 import { Connection } from 'typeorm';
 import { RepositoryConsts } from './../../orm/repositoryConsts';
 import { Accounts } from './../../entity/MoonbeamBalanceModule/Accounts';
-import { AccountSnapshots } from './../../entity/MoonbeamBalanceModule/AccountSnapshots';
 import { BalanceSets } from './../../entity/MoonbeamBalanceModule/BalanceSets';
 import { Deposits } from './../../entity/MoonbeamBalanceModule/Deposits';
 import { Endoweds } from './../../entity/MoonbeamBalanceModule/Endoweds';
@@ -22,13 +21,7 @@ export const repositoryProviders_moonbeam_balance = [
     },
     inject: [RepositoryConsts.DATABASE_CONNECTION_MOONBEAM_BALANCE],
   },
-  {
-    provide: RepositoryConsts.MOONBEAM_BALANCE_ACCOUNT_SNAPSHOTS_REPOSITORY,
-    useFactory: (connection: Connection) => {
-      return connection.getRepository(AccountSnapshots);
-    },
-    inject: [RepositoryConsts.DATABASE_CONNECTION_MOONBEAM_BALANCE],
-  },
+  
   {
     provide: RepositoryConsts.MOONBEAM_BALANCE_BALANCE_SETS_REPOSITORY,
     useFactory: (connection: Connection) => {
