@@ -66,11 +66,15 @@ export class AppConfig {
   public static typeOrmOption4PIS = {
     ...this.postgresConnection,
     database: 'dev-pis',
-
+    
   };
   public static typeOrmOption4MoonbeamBalanceDB = {
     ...this.postgresConnection,
     database: 'dev-moonbeam-balance',
+  };
+  public static typeOrmOption4MoonriverBalanceDB = {
+    ...this.postgresConnection,
+    database: 'dev-moonriver-balance',
   };
 
   public static redisOption: RedisModuleOptions = {
