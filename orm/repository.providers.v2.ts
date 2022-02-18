@@ -8,3 +8,4 @@ export * from './repository.provider.v2/rmrk';
 export * from './repository.provider.v2/polkadot.identity';
 export * from './repository.provider.v2/polkadot.balance';
 export * from './repository.provider.v2/moonbeam.balance';
+export * from './repository.provider.v2/moonriver.balance';
