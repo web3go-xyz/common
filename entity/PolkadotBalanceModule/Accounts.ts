@@ -15,9 +15,9 @@ export class Accounts {
   @Column("numeric", { name: "total_balance", nullable: true })
   totalBalance: string | null;
 
-  @Column("numeric", { name: "aid" })
-  aid: string;
+  @Column("numeric", { name: "aid", nullable: true })
+  aid: string | null;
 
-  @Column("numeric", { name: "at_block" })
-  atBlock: string;
+  @Column("numeric", { name: "at_block", nullable: true })
+  atBlock: string | null;
 }
