@@ -10,6 +10,7 @@ import { Slashes } from './../../entity/PolkadotBalanceModule/Slashes';
 import { Transfers } from './../../entity/PolkadotBalanceModule/Transfers';
 import { Unreserveds } from './../../entity/PolkadotBalanceModule/Unreserveds';
 import { Withdraws } from './../../entity/PolkadotBalanceModule/Withdraws';
+import { AccountsLatestSyncBlock } from './../../entity/PolkadotBalanceModule/AccountsLatestSyncBlock';
 
 //#region polkadot balance
 export const repositoryProviders_polkadot_balance = [
@@ -85,6 +86,14 @@ export const repositoryProviders_polkadot_balance = [
     provide: RepositoryConsts.POLKADOT_BALANCE_WITHDRAWS_REPOSITORY,
     useFactory: (connection: Connection) => {
       return connection.getRepository(Withdraws);
+    },
+    inject: [RepositoryConsts.DATABASE_CONNECTION_POLKADOT_BALANCE],
+  },
+
+  {
+    provide: RepositoryConsts.POLKADOT_BALANCE_ACCOUNTS_LATEST_SYNC_BLOCK_REPOSITORY,
+    useFactory: (connection: Connection) => {
+      return connection.getRepository(AccountsLatestSyncBlock);
     },
     inject: [RepositoryConsts.DATABASE_CONNECTION_POLKADOT_BALANCE],
   },
