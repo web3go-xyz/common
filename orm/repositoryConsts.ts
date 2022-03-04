@@ -32,6 +32,8 @@ export class RepositoryConsts {
   public static WALLET_ADDRESS_EXT_REPOSITORY: string =
     'WALLET_ADDRESS_EXT_REPOSITORY';
 
+
+  //Kusama Crowdloan
   public static KUSAMA_PARA_CHAIN_NAME_MAPPING_REPOSITORY: string =
     'KUSAMA_PARA_CHAIN_NAME_MAPPING';
   public static KUSAMA_PARA_CHAIN_REPOSITORY: string =
@@ -43,6 +45,7 @@ export class RepositoryConsts {
   public static KUSAMA_PARA_CHAIN_CROWDLOAN_ROUND_REPOSITORY: string =
     'KUSAMA_PARA_CHAIN_CROWDLOAN_ROUND_REPOSITORY';
 
+  //Polkadot Crowdloan
   public static POLKADOT_PARA_CHAIN_NAME_MAPPING_REPOSITORY: string =
     'POLKADOT_PARA_CHAIN_NAME_MAPPING';
   public static POLKADOT_PARA_CHAIN_REPOSITORY: string =
@@ -69,6 +72,8 @@ export class RepositoryConsts {
   public static LABEL_MARK_CONFIG_REPOSITORY: string =
     'LABEL_MARK_CONFIG_REPOSITORY';
 
+
+  //Karura CDP
   public static CDP_CHAIN_STATE_REPOSITORY: string =
     'CDP_CHAIN_STATE_REPOSITORY';
   public static CDP_PRICE_REPOSITORY: string = 'CDP_PRICE_REPOSITORY';
@@ -82,10 +87,8 @@ export class RepositoryConsts {
   public static CDP_LOAN_ACTION_REPOSITORY: string =
     'CDP_LOAN_ACTION_REPOSITORY';
 
-  public static CUSTOM_QUERY_REPOSITORY: string = 'CUSTOM_QUERY_REPOSITORY';
-  public static ANALYTICS_INSIGHT_DASHBOARD_REPOSITORY: string = 'ANALYTICS_INSIGHT_DASHBOARD_REPOSITORY';
 
-  //MoonRiver
+  //MoonRiver Staking
   public static MOONRIVER_CHAIN_STATE_REPOSITORY: string =
     'MOONRIVER_CHAIN_STATE_REPOSITORY';
   public static MOONRIVER_COLLATOR_ACTION_HISTORY_REPOSITORY: string =
@@ -120,6 +123,9 @@ export class RepositoryConsts {
     'PLATFORM_STATISTIC_REPOSITORY';
   public static PROFILE_ADDRESS_SEARCH_REPOSITORY: string =
     'PROFILE_ADDRESS_SEARCH_REPOSITORY';
+
+  public static CUSTOM_QUERY_REPOSITORY: string = 'CUSTOM_QUERY_REPOSITORY';
+  public static ANALYTICS_INSIGHT_DASHBOARD_REPOSITORY: string = 'ANALYTICS_INSIGHT_DASHBOARD_REPOSITORY';
 
 
   //RMRK
