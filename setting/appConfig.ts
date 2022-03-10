@@ -76,6 +76,10 @@ export class AppConfig {
     ...this.postgresConnection,
     database: 'dev-moonriver-balance',
   };
+  public static typeOrmOption4KusamaBalanceDB = {
+    ...this.postgresConnection,
+    database: 'dev-kusama-balance',
+  };
 
   public static redisOption: RedisModuleOptions = {
     port: 6379,
