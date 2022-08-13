@@ -21,6 +21,28 @@ export class AppConfig {
     synchronize: false,
     logging: false,
   }
+
+  public static typeOrmOptionMysqlQuery = {
+    type: 'mysql',
+    host: '',
+    port: 3306,
+    username: 'sqlquery',
+    password: '',
+    synchronize: false,
+    logging: false,
+  };
+  public static typeOrmOptionPostgresqlQuery = {
+    type: 'postgres',
+    host: '',
+    port: 5432,
+    username: 'sqlquery',
+    password: '',
+    synchronize: false,
+    logging: false,
+  };
+
+
+
   public static typeOrmOptionPlatform = {
     ...this.mysqlConnection,
     database: 'ido-platform',
@@ -32,7 +54,7 @@ export class AppConfig {
 
   public static typeOrmOption4PolkadotParaChain = {
     ...this.mysqlConnection,
-    database: 'ido-polkadot',
+    database: 'ido-polkadot-crowdloan',
   };
   public static typeOrmOption4KusamaParaChain = {
     ...this.mysqlConnection,
@@ -41,13 +63,13 @@ export class AppConfig {
 
   public static typeOrmOption4CDPDB = {
     ...this.mysqlConnection,
-    database: 'ido-price',
+    database: 'ido-karura-cdp',
 
   };
 
   public static typeOrmOption4MoonRiverDB = {
-    ...this.mysqlConnection,
-    database: 'ido-moonriver',
+    ...this.postgresConnection,
+    database: 'prod-moonriver-staking',
   };
   // public static typeOrmOption4MoonRiverDB = {
   //   ...this.postgresConnection,
@@ -66,7 +88,7 @@ export class AppConfig {
   public static typeOrmOption4PIS = {
     ...this.postgresConnection,
     database: 'dev-pis',
-    
+
   };
   public static typeOrmOption4MoonbeamBalanceDB = {
     ...this.postgresConnection,
