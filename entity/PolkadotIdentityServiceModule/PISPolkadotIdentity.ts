@@ -1,14 +1,19 @@
 import { Column, Entity, Index, PrimaryColumn } from 'typeorm';
 
-@Index('pis_identity_pkey', ['id'], { unique: true })
 @Entity('pis_identity', { schema: 'public' })
 export class PISPolkadotIdentity {
   constructor() {
     this.lastUpdateTime = new Date();
   }
 
-  @PrimaryColumn({ type: 'varchar', length: 255, name: 'id', primary: true })
+  @PrimaryColumn({ type: 'varchar', length: 255, name: 'id', primary: true, comment: 'address' })
   id: string;
+
+  @PrimaryColumn({ type: 'text', name: 'network', nullable: false, default: 'polkadot' })
+  network: string | null = 'polkadot';
+
+  @Column({ type: 'varchar', length: 255, name: 'account_public_key', nullable: true, comment: 'substrate public key' })
+  accountPublicKey: string;
 
   @Column({ type: 'text', name: 'display', nullable: true })
   display: string | null;
@@ -37,8 +42,6 @@ export class PISPolkadotIdentity {
   @Column({ type: 'jsonb', name: 'raw_identity_in_json', nullable: true })
   rawIdentityInJson: object | null;
 
-  @Column({ type: 'varchar', length: 255, name: 'account_public_key', nullable: true })
-  accountPublicKey: string;
 
   @Column({ type: 'varchar', length: 255, name: 'account_polkadot' })
   accountPolkadot: string = '';
@@ -49,6 +52,4 @@ export class PISPolkadotIdentity {
   @Column({ type: 'timestamp', name: 'last_update_time' })
   lastUpdateTime: Date;
 
-  @Column({ type: 'text', name: 'network', nullable: false, default: 'polkadot' })
-  network: string | null = 'polkadot';
 }
